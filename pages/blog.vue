@@ -16,8 +16,5 @@ export default {
       posts,
     }
   },
-  mounted() {
-    console.log('test')
-  },
 }
 </script>
