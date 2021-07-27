@@ -43,6 +43,21 @@ export default {
     '@nuxt/content',
   ],
 
+  generate: {
+    routes() {
+      const fs = require('fs');
+      const path = require('path');
+      return fs.readdirSync('./content/blog').map(file => {
+        const filePath = `./content/blog/${file}`;
+        const content = require(filePath);
+        return {
+          route: `blog/${path.parse(file).name}`, // Return the slug
+          payload: content
+        };
+      });
+    },
+  },
+
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
