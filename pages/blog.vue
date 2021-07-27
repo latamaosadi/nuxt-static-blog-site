@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Blog</h1>
     <li v-for="post of posts" :key="post.slug">
       <NuxtLink :to="post.slug">{{ post.title }}</NuxtLink>
     </li>
@@ -14,6 +15,9 @@ export default {
     return {
       posts,
     }
+  },
+  mounted() {
+    console.log('test')
   },
 }
 </script>
